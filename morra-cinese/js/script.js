@@ -1,11 +1,15 @@
+// 2. Realizziamo il gioco della morra cinese in JavaScript. Vince chi totalizza per primo 4 punti.
+
+
 var sceltaUtente;
 var sceltaPc;
 var giocataPC = ['sasso', 'carta', 'forbice'];// dichiara le variabili per la scelta del pc
 var risultato;
-var i = 0;// dichiara da quanto parte la i
+var vincitaUtente = 0;
+var vincitaPc = 0;
 
 
-while (i < 4){// fino a quando la i è minore di 4 
+while (vincitaPc < 4 && vincitaUtente < 4){// fino a quando la i è minore di 4 
   var vittoria = true;
   sceltaUtente = prompt('Scegli carta o sasso o forbice');// l'utente sceglie tra le 3 possibilità
 
@@ -15,7 +19,6 @@ while (i < 4){// fino a quando la i è minore di 4
   }
 
   sceltaPc = giocataPC[Math.floor(Math.random() * giocataPC.length)];// il pc genera random un valore tra quelli nell'array
-  i++;// la i cresce di 1 ogni volta che si ripete il ciclo
   
   console.log(sceltaUtente);// vedi se non esplode il mondo
   console.log(sceltaPc);// vedi se non esplode il mondo
@@ -74,9 +77,13 @@ while (i < 4){// fino a quando la i è minore di 4
   }
 
   if (vittoria){
-   console.log('hai vinto');
+    console.log('hai vinto');
+    vincitaUtente++;
+    console.log('il tuo punteggio è ' + vincitaUtente);
   } else {
     console.log('hai perso');
+    vincitaPc++;
+    console.log('il punteggio del pc è ' + vincitaPc);
   }
 
 
